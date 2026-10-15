@@ -1,0 +1,87 @@
+# 本地 openGauss 6.0.3 JDBC 实验
+
+2026-10-14 在本机 Docker Desktop ARM64 上完成安装和 JDBC 实测。数据库使用官方 openGauss Lite 6.0.3 ARM 安装包，包含 Dolphin 4.3。企业版安装包的 MOT 引擎在当前 Docker 虚拟机 NUMA 拓扑上初始化失败，因此本地实验改用轻量版；本次验证对象是普通表和 Dolphin/JDBC 协议。
+
+## 连接信息
+
+- 容器：`codex-opengauss-603`
+- 镜像：`codex-opengauss:6.0.3-lite`
+- 持久化卷：`codex-opengauss-603-data`
+- 原生端口：`127.0.0.1:15432` → 容器 `5432`
+- MySQL 协议端口：`127.0.0.1:13306` → 容器 `3306`
+- 账号：`lab_user`
+- 密码：本目录 `.env` 的 `GS_PASSWORD`，文件权限为 600
+- 实际 database：`og_lab`，B 兼容模式
+- 业务 schema：`cz001`
+
+MySQL URL：
+
+```text
+jdbc:mysql://127.0.0.1:13306/cz001?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8
+```
+
+原生 URL：
+
+```text
+jdbc:opengauss://127.0.0.1:15432/og_lab?currentSchema=cz001&sslmode=disable
+```
+
+实验目录中的原生驱动为 `org.opengauss:opengauss-jdbc:6.0.3-og`，类名 `org.opengauss.Driver`。已验证该包接受 `jdbc:opengauss:`。不带 `-og` 的 Maven Central `6.0.3` 包使用 `org.postgresql.Driver` 和 `jdbc:postgresql:`，不可直接配置为 `org.opengauss.Driver`。
+
+## 实测结果
+
+测试值为 4,203,408 个 ASCII 字符，即 4,203,408 字节。MySQL 实际 INSERT 包包含 SQL 开销，大小为 4,203,460 字节。
+
+| 情况 | 服务器 SHOW 值 | MySQL 驱动有效上限 | 4.2 MiB INSERT |
+| --- | --- | --- | --- |
+| MySQL 默认连接 | 4 MiB | 4 MiB | PacketTooBigException |
+| 在连接建立后手动 SET 为 8 MiB | 8 MiB | 仍为 4 MiB | PacketTooBigException |
+| 手动 SET 后同步修改驱动运行属性 | 8 MiB | 8 MiB | 成功 |
+| JDBC URL 设置 sessionVariables 和 maxAllowedPacket | 8 MiB | 8 MiB | 成功 |
+| ALTER ROLE 保存默认值后，新建 MySQL 连接 | 仍为 4 MiB | 4 MiB | PacketTooBigException |
+| openGauss 原生驱动连接同一个 B 库 | SHOW 仍为 4 MiB | 不走 MySQL 驱动限制 | 成功 |
+
+同时验证：
+
+1. 原生驱动读取了 MySQL 连接访问的同一张 `cz001.packet_probe` 表。
+2. 原生驱动执行原 MySQL Mapper 风格的反引号 INSERT 成功，写入并查询出 4,203,408 字节的值。该结果验证了本次 INSERT，不代表所有 app SQL 和 JDBC 行为均已完成兼容性验证。
+3. 原生连接使用 `/cz001` 作为 database 时，报 `database "cz001" does not exist`。本实验中 `cz001` 是 schema，实际 database 为 `og_lab`。
+4. 原生协议下直接执行 `SELECT @@max_allowed_packet` 报列不存在；MySQL 协议下该语法可用。
+5. MySQL 连接的搜索路径包含 `"$user", cz001`，用户同名 schema `lab_user` 排在前面，因此 `current_schema()` 返回 `lab_user`；`packet_probe` 表实际位于 `cz001`。判断数据所在位置应结合 `SHOW search_path` 和表的 schema，不能仅看 `current_schema()`。
+
+本地 JDBC URL 方案成功，不能据此认定客户配置必然成功或客户操作有误。客户的具体驱动版本、实际 URL、配置传递和连接池状态尚未得到同样的现场输出。
+
+## 操作和复测
+
+```bash
+cd '/Users/yang/Documents/project/docs/opengauss-6.0.3-lab'
+docker compose up -d --no-build
+./run-tests.sh
+docker compose stop
+```
+
+`run-tests.sh` 使用本目录的 MySQL Connector/J 9.4.0 和 openGauss JDBC 6.0.3-og，通过 `.env` 获取密码。结果保存在 `results.txt`。实验程序只读写本地实验表，写入后清理大数据行，并撤销它测试的账号参数默认值。
+
+容器内使用 gsql：
+
+```bash
+docker exec -it codex-opengauss-603 runuser -u omm -- gsql -d og_lab -p 5432
+```
+
+可以运行：
+
+```sql
+SELECT version(), current_database(), current_schema();
+SHOW search_path;
+SELECT table_schema FROM information_schema.tables WHERE table_name = 'packet_probe';
+SELECT id, value FROM cz001.packet_probe;
+SHOW dolphin.default_database_name;
+```
+
+## 发布包来源
+
+- [官方 6.0.3 ARM 轻量版安装包](https://opengauss.obs.cn-south-1.myhuaweicloud.com/6.0.3/openEuler22.03/arm/openGauss-Lite-6.0.3-openEuler22.03-aarch64.tar.gz)
+- [Maven Central openGauss JDBC 6.0.3-og](https://repo.maven.apache.org/maven2/org/opengauss/opengauss-jdbc/6.0.3-og/)
+- [6.0.3 官方 Dockerfile](https://github.com/opengauss-mirror/openGauss-server/blob/v6.0.3/docker/dockerfiles/6.0.0/dockerfile_lite_arm)
+
+本实验没有修改 deepfos-platform 业务源码或业务数据源记录。

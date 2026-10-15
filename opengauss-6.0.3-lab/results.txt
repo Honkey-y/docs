@@ -1,0 +1,78 @@
+PAYLOAD_ASCII_BYTES=4203408
+
+CASE=mysql-default
+driver=MySQL Connector/J:mysql-connector-j-9.4.0 (Revision: d680767849154c8e136dfc3d8a0ae4d9fefd1fb7)
+SELECT current_database(), current_schema() => og_lab | lab_user
+SHOW search_path => "$user",cz001
+SELECT table_schema FROM information_schema.tables WHERE table_name='packet_probe' => cz001
+SHOW max_allowed_packet => 4194304
+SELECT @@max_allowed_packet => 4194304
+driver.sessionVariables=null
+driver.cachedMaxAllowedPacket=4194304
+driver.effectiveMaxAllowedPacket=4194304
+mysql-default.insert=FAIL PacketTooBigException/S1000: Packet for query is too large (4,203,460 > 4,194,304). You can change this value on the server by setting the 'max_allowed_packet' variable.
+
+CASE=mysql-manual-set
+driver=MySQL Connector/J:mysql-connector-j-9.4.0 (Revision: d680767849154c8e136dfc3d8a0ae4d9fefd1fb7)
+SELECT current_database(), current_schema() => og_lab | lab_user
+SHOW search_path => "$user",cz001
+SELECT table_schema FROM information_schema.tables WHERE table_name='packet_probe' => cz001
+SHOW max_allowed_packet => 8388608
+SELECT @@max_allowed_packet => 8388608
+driver.sessionVariables=null
+driver.cachedMaxAllowedPacket=4194304
+driver.effectiveMaxAllowedPacket=4194304
+mysql-manual-set.insert=FAIL PacketTooBigException/S1000: Packet for query is too large (4,203,460 > 4,194,304). You can change this value on the server by setting the 'max_allowed_packet' variable.
+
+CASE=mysql-manual-set-and-driver
+driver=MySQL Connector/J:mysql-connector-j-9.4.0 (Revision: d680767849154c8e136dfc3d8a0ae4d9fefd1fb7)
+SELECT current_database(), current_schema() => og_lab | lab_user
+SHOW search_path => "$user",cz001
+SELECT table_schema FROM information_schema.tables WHERE table_name='packet_probe' => cz001
+SHOW max_allowed_packet => 8388608
+SELECT @@max_allowed_packet => 8388608
+driver.sessionVariables=null
+driver.cachedMaxAllowedPacket=4194304
+driver.effectiveMaxAllowedPacket=8388608
+mysql-manual-set-and-driver.insert=PASS rows=1
+SELECT length(value) FROM packet_probe WHERE id=12 => 4203408
+
+CASE=mysql-url-settings
+driver=MySQL Connector/J:mysql-connector-j-9.4.0 (Revision: d680767849154c8e136dfc3d8a0ae4d9fefd1fb7)
+SELECT current_database(), current_schema() => og_lab | lab_user
+SHOW search_path => "$user",cz001
+SELECT table_schema FROM information_schema.tables WHERE table_name='packet_probe' => cz001
+SHOW max_allowed_packet => 8388608
+SELECT @@max_allowed_packet => 8388608
+driver.sessionVariables=max_allowed_packet=8388608
+driver.cachedMaxAllowedPacket=8388608
+driver.effectiveMaxAllowedPacket=8388608
+mysql-url-settings.insert=PASS rows=1
+SELECT length(value) FROM packet_probe WHERE id=13 => 4203408
+
+CASE=native-existing-B-db
+driver=PostgreSQL JDBC Driver:/*$mvn.project.property.parsedversion.osgiversion$*/
+SELECT current_database(), current_schema() => og_lab | cz001
+SHOW search_path => cz001
+SELECT table_schema FROM information_schema.tables WHERE table_name='packet_probe' => cz001
+SHOW max_allowed_packet => 4194304
+SELECT @@max_allowed_packet => ERROR PSQLException/42703: [*.*.0.1:54818/*.*.0.1:15432] ERROR: column "max_allowed_packet" does not exist   位置：10
+SELECT id, value FROM packet_probe WHERE id=1 => 1 | created in openGauss B database
+native-existing-B-db.insert=PASS rows=1
+SELECT length(value) FROM packet_probe WHERE id=14 => 4203408
+native-original-mysql-mapper-sql:
+native-mysql-insert-rows=1
+SELECT length(`value`) FROM `appcz001_element_content` WHERE element_info_id='native-probe' => 4203408
+
+CASE=mysql-after-alter-role
+driver=MySQL Connector/J:mysql-connector-j-9.4.0 (Revision: d680767849154c8e136dfc3d8a0ae4d9fefd1fb7)
+SELECT current_database(), current_schema() => og_lab | lab_user
+SHOW search_path => "$user",cz001
+SELECT table_schema FROM information_schema.tables WHERE table_name='packet_probe' => cz001
+SHOW max_allowed_packet => 4194304
+SELECT @@max_allowed_packet => 4194304
+driver.sessionVariables=null
+driver.cachedMaxAllowedPacket=4194304
+driver.effectiveMaxAllowedPacket=4194304
+mysql-after-alter-role.insert=FAIL PacketTooBigException/S1000: Packet for query is too large (4,203,460 > 4,194,304). You can change this value on the server by setting the 'max_allowed_packet' variable.
+native-naive-database-cz001=FAIL PSQLException/3D000: [*.*.0.1:54821/*.*.0.1:15432] FATAL: database "cz001" does not exist

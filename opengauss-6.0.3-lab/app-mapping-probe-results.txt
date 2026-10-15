@@ -1,0 +1,41 @@
+INPUT=jdbc:mysql://127.0.0.1:13306/cz001?useSSL=false&characterEncoding=utf8
+CONVERTED=jdbc:opengauss://127.0.0.1:15432/og_lab?useSSL=false&characterEncoding=utf8&currentSchema=cz001
+10:48:19.775 [main] INFO com.zaxxer.hikari.HikariDataSource -- HikariPool-1 - Starting...
+10:48:19.969 [main] INFO com.zaxxer.hikari.HikariDataSource -- HikariPool-1 - Start completed.
+CONNECTED=og_lab.cz001
+NATIVE_INSERT_BYTES=4203408 schema=cz001 PASS
+10:48:20.087 [main] INFO com.zaxxer.hikari.HikariDataSource -- HikariPool-1 - Shutdown initiated...
+10:48:20.088 [main] INFO com.zaxxer.hikari.HikariDataSource -- HikariPool-1 - Shutdown completed.
+INPUT=jdbc:mysql://127.0.0.1:13306/lab_user?useSSL=false&characterEncoding=utf8
+CONVERTED=jdbc:opengauss://127.0.0.1:15432/og_lab?useSSL=false&characterEncoding=utf8&currentSchema=lab_user
+10:48:20.088 [main] INFO com.zaxxer.hikari.HikariDataSource -- HikariPool-2 - Starting...
+10:48:20.112 [main] INFO com.zaxxer.hikari.HikariDataSource -- HikariPool-2 - Start completed.
+CONNECTED=og_lab.lab_user
+NATIVE_INSERT_BYTES=4203408 schema=lab_user PASS
+10:48:20.192 [main] INFO com.zaxxer.hikari.HikariDataSource -- HikariPool-2 - Shutdown initiated...
+10:48:20.193 [main] INFO com.zaxxer.hikari.HikariDataSource -- HikariPool-2 - Shutdown completed.
+
+10月 15, 2026 10:48:19 上午 org.opengauss.core.v3.ConnectionFactoryImpl openConnectionImpl
+信息: [3142b137-399a-4f8b-9eba-b715bcde8c8c] Try to connect. IP: 127.0.0.1:15432
+10月 15, 2026 10:48:19 上午 org.opengauss.core.v3.ConnectionFactoryImpl openConnectionImpl
+信息: [*.*.0.1:63078/*.*.0.1:15432] Connection is established. ID: 3142b137-399a-4f8b-9eba-b715bcde8c8c
+10月 15, 2026 10:48:19 上午 org.opengauss.core.v3.ConnectionFactoryImpl openConnectionImpl
+信息: Connect complete. ID: 3142b137-399a-4f8b-9eba-b715bcde8c8c
+10月 15, 2026 10:48:19 上午 org.opengauss.core.v3.ConnectionFactoryImpl openConnectionImpl
+信息: [d8385450-dbd8-4b18-ac45-cecada613ab2] Try to connect. IP: 127.0.0.1:15432
+10月 15, 2026 10:48:19 上午 org.opengauss.core.v3.ConnectionFactoryImpl openConnectionImpl
+信息: [*.*.0.1:63081/*.*.0.1:15432] Connection is established. ID: d8385450-dbd8-4b18-ac45-cecada613ab2
+10月 15, 2026 10:48:19 上午 org.opengauss.core.v3.ConnectionFactoryImpl openConnectionImpl
+信息: Connect complete. ID: d8385450-dbd8-4b18-ac45-cecada613ab2
+10月 15, 2026 10:48:20 上午 org.opengauss.core.v3.ConnectionFactoryImpl openConnectionImpl
+信息: [8d9b5908-67f4-4d5e-809f-bb8e0572ed3c] Try to connect. IP: 127.0.0.1:15432
+10月 15, 2026 10:48:20 上午 org.opengauss.core.v3.ConnectionFactoryImpl openConnectionImpl
+信息: [*.*.0.1:63082/*.*.0.1:15432] Connection is established. ID: 8d9b5908-67f4-4d5e-809f-bb8e0572ed3c
+10月 15, 2026 10:48:20 上午 org.opengauss.core.v3.ConnectionFactoryImpl openConnectionImpl
+信息: Connect complete. ID: 8d9b5908-67f4-4d5e-809f-bb8e0572ed3c
+10月 15, 2026 10:48:20 上午 org.opengauss.core.v3.ConnectionFactoryImpl openConnectionImpl
+信息: [327aa5bc-3c9b-4653-b33f-65d28d2b9f44] Try to connect. IP: 127.0.0.1:15432
+10月 15, 2026 10:48:20 上午 org.opengauss.core.v3.ConnectionFactoryImpl openConnectionImpl
+信息: [*.*.0.1:63083/*.*.0.1:15432] Connection is established. ID: 327aa5bc-3c9b-4653-b33f-65d28d2b9f44
+10月 15, 2026 10:48:20 上午 org.opengauss.core.v3.ConnectionFactoryImpl openConnectionImpl
+信息: Connect complete. ID: 327aa5bc-3c9b-4653-b33f-65d28d2b9f44

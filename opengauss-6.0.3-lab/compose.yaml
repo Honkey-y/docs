@@ -1,0 +1,24 @@
+services:
+  opengauss:
+    image: codex-opengauss:6.0.3-lite
+    build: .
+    container_name: codex-opengauss-603
+    environment:
+      GS_PASSWORD: ${GS_PASSWORD}
+    ports:
+      - "127.0.0.1:15432:5432"
+      - "127.0.0.1:13306:3306"
+    volumes:
+      - opengauss_data:/var/lib/opengauss
+    shm_size: 512mb
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "runuser -u omm -- gsql -d og_lab -p 5432 -c 'SELECT 1' >/dev/null 2>&1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 60s
+
+volumes:
+  opengauss_data:
+    name: codex-opengauss-603-data

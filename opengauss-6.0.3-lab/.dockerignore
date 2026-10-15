@@ -1,0 +1,8 @@
+.env
+*.jar
+*.java
+*.class
+*.md
+*.log
+*.json
+openGauss-Server-*
