@@ -2,20 +2,21 @@
 服务库：平台, 电子表格
 
 ## 待办
-- [ ] 操作日志增加ip字段
-  服务：平台
-  标签：功能
-  优先级：medium
-  平台操作日志
 - [ ] 替换es中间件-调研
   服务：平台
   标签：优化
   优先级：medium
+  截止：2026-12-18
   Lucene替换es
-- [ ] Jmter压测工具Web项目
+- [ ] Jmeter压测Web-调研
   标签：功能
   优先级：low
   首版核心功能要实现各个报告的自动化产出
+- [ ] license认证增加人数控制
+  服务：平台
+  标签：迭代
+  优先级：high
+  截止：2026-11-06
 
 ## 进行中
 - [ ] 电子表格属性与币种公式
@@ -24,27 +25,37 @@
   优先级：high
   截止：2026-10-30
   需求文档：https://proinnova.yuque.com/ys1krd/ah9dqq/et4df44r0oru7n2l
-- [ ] license认证增加人数控制
-  服务：平台
-  标签：迭代
-  优先级：high
-  截止：2026-10-23
 - [ ] 菜单不同环境导出导入后内部权限失效
   服务：平台
   标签：工单
-  优先级：medium
+  优先级：low
   菜单项内部的自定义授权按用户 ID、用户组 ID 保存和校验，不按 code。A、B 环境即使用户组编码一样，只要 ID 不同，授权就对不上
   长期修复：导出时附带用户名、用户组编码，导入时解析成 B 的 ID；运行时继续用 ID 鉴权
+- [ ] 【平台】porj分支合并主分支
+  服务：平台
+  标签：迭代
+  优先级：critical
+  截止：2026-10-18
 
 ## 等待中
-- [ ] 【京东方】元数据源OpenGauss适配
+- [ ] 【issue_06706】平台环境变量组件查询时被权限控制
+  服务：平台
+  标签：工单
+  优先级：high
+  问题链接：https://cloud.deepfos.com/element-ux/1-0-0/?elementName=project_defect_form&folderId=DIR0ab175d73e32&path=%5Cissue%5C&task=f92cd8a7-c923-11f1-a2a1-9e9f8f08d350&issues_code=issue_06706&sign=YXBwSWQ9a2d3d2duMDE0JnNwYWNlPWtnd3dnbg%3D%3D
+- [ ] 操作日志增加ip字段
+  服务：平台
+  标签：优化
+  优先级：medium
+  需求文档：https://proinnova.yuque.com/ys1krd/deepfos/gq7knxhz4em351ex
+
+## 近期完成
+- [x] 【京东方】元数据源OpenGauss适配
   服务：平台
   标签：优化, 工单
   优先级：medium
   截止：2026-11-05
   原因：mysql兼容模式下无法解开4M传输大小限制
-
-## 近期完成
 
 ## 已完成
 - [x] 徐工企业logo上传限制
