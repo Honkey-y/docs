@@ -31,11 +31,6 @@
   优先级：low
   菜单项内部的自定义授权按用户 ID、用户组 ID 保存和校验，不按 code。A、B 环境即使用户组编码一样，只要 ID 不同，授权就对不上
   长期修复：导出时附带用户名、用户组编码，导入时解析成 B 的 ID；运行时继续用 ID 鉴权
-- [ ] 【平台】porj分支合并主分支
-  服务：平台
-  标签：迭代
-  优先级：critical
-  截止：2026-10-18
 
 ## 等待中
 - [ ] 【issue_06706】平台环境变量组件查询时被权限控制
@@ -48,6 +43,11 @@
   标签：优化
   优先级：medium
   需求文档：https://proinnova.yuque.com/ys1krd/deepfos/gq7knxhz4em351ex
+- [ ] porj_*与fix_platform_config合并主分支
+  服务：平台
+  标签：迭代
+  优先级：critical
+  截止：2026-10-18
 
 ## 近期完成
 - [x] 【京东方】元数据源OpenGauss适配
