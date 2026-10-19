@@ -1,0 +1,134 @@
+{
+  "sourceFile": "/Users/yang/Downloads/deepfos-logger-2026-10-19-20261019-134428-M2U3.json",
+  "space": "cuujxn",
+  "app": "cuujxn005",
+  "workbook": "SAR16",
+  "savedCell": {
+    "r": "9",
+    "c": "4",
+    "d": 100,
+    "de": "period{13}->movement{FAIA01Open02}->year{2025}->scenario{Month}->version{Working}->entity{[BOE].[3210]}->value{EntityCurrency}->account{NJ160104}->d1{None}->d2{None}->d3{None}->d4{None}->d5{None}->d6{None}->audittrail{NoneAdj}->partner{NoPartner}->View{YTD}",
+    "ds": "Main_Cube",
+    "t": 1
+  },
+  "saveResponse": {
+    "status": true,
+    "data": {
+      "sheetDatas": [
+        {
+          "sheetId": "SHTbf64b60379b44535b6ec099ff4580f26",
+          "sheetName": "Sheet1",
+          "sort": 1,
+          "districtSaveResults": [
+            {
+              "districtId": null,
+              "districtName": null,
+              "tableType": 0,
+              "rowDatas": [],
+              "commonMember": null,
+              "cubeId": null,
+              "cubeName": "Main_Cube",
+              "cubeFolderId": "DIR778f45cfcb06",
+              "cubePath": "/Consolidation_App/Consolidation/Main_Model/",
+              "insertBatch": null,
+              "commonErrorMsgList": [],
+              "saveDataAuthMode": 2,
+              "validateMode": 1
+            }
+          ],
+          "floatingTableSaveResults": null
+        }
+      ],
+      "entryObject": "SAR16",
+      "entryMode": 2,
+      "wbName": "SAR16",
+      "wbFolderId": "DIR9419caf83fef",
+      "wbPath": "\\Consolidation_App\\Consolidation\\Form\\Notes\\BCZL\\Input_BCZL\\"
+    },
+    "code": 0,
+    "message": null
+  },
+  "refreshCells": [
+    {
+      "r": 6,
+      "c": 4,
+      "de": "period{13}->movement{FAIA01Open02}->year{2025}->scenario{Month}->version{Working}->entity{[BOE].[3210]}->value{EntityCurrency}->account{NJ1601}->d1{None}->d2{None}->d3{None}->d4{None}->d5{None}->d6{None}->audittrail{NoneAdj}->partner{NoPartner}->View{YTD}",
+      "ds": "Main_Cube",
+      "t": 1
+    },
+    {
+      "r": 7,
+      "c": 4,
+      "de": "period{13}->movement{FAIA01Open02}->year{2025}->scenario{Month}->version{Working}->entity{[BOE].[3210]}->value{EntityCurrency}->account{NJ160101}->d1{None}->d2{None}->d3{None}->d4{None}->d5{None}->d6{None}->audittrail{NoneAdj}->partner{NoPartner}->View{YTD}",
+      "ds": "Main_Cube",
+      "t": 1
+    },
+    {
+      "r": 8,
+      "c": 4,
+      "de": "period{13}->movement{FAIA01Open02}->year{2025}->scenario{Month}->version{Working}->entity{[BOE].[3210]}->value{EntityCurrency}->account{NJ160103}->d1{None}->d2{None}->d3{None}->d4{None}->d5{None}->d6{None}->audittrail{NoneAdj}->partner{NoPartner}->View{YTD}",
+      "ds": "Main_Cube",
+      "t": 1
+    },
+    {
+      "r": 9,
+      "c": 4,
+      "de": "period{13}->movement{FAIA01Open02}->year{2025}->scenario{Month}->version{Working}->entity{[BOE].[3210]}->value{EntityCurrency}->account{NJ160104}->d1{None}->d2{None}->d3{None}->d4{None}->d5{None}->d6{None}->audittrail{NoneAdj}->partner{NoPartner}->View{YTD}",
+      "ds": "Main_Cube",
+      "t": 1
+    },
+    {
+      "r": 10,
+      "c": 4,
+      "de": "period{13}->movement{FAIA01Open02}->year{2025}->scenario{Month}->version{Working}->entity{[BOE].[3210]}->value{EntityCurrency}->account{NJ160105}->d1{None}->d2{None}->d3{None}->d4{None}->d5{None}->d6{None}->audittrail{NoneAdj}->partner{NoPartner}->View{YTD}",
+      "ds": "Main_Cube",
+      "t": 1
+    },
+    {
+      "r": 11,
+      "c": 4,
+      "de": "period{13}->movement{FAIA01Open02}->year{2025}->scenario{Month}->version{Working}->entity{[BOE].[3210]}->value{EntityCurrency}->account{NJ160199}->d1{None}->d2{None}->d3{None}->d4{None}->d5{None}->d6{None}->audittrail{NoneAdj}->partner{NoPartner}->View{YTD}",
+      "ds": "Main_Cube",
+      "t": 1
+    }
+  ],
+  "refreshResponseCells": [
+    {
+      "a": 1,
+      "r": 10,
+      "c": 4
+    },
+    {
+      "a": 1,
+      "r": 11,
+      "c": 4,
+      "d": 67967
+    },
+    {
+      "a": 2,
+      "r": 6,
+      "c": 4,
+      "d": 171387
+    },
+    {
+      "a": 1,
+      "r": 7,
+      "c": 4,
+      "d": 56856
+    },
+    {
+      "a": 1,
+      "r": 8,
+      "c": 4,
+      "d": 46564
+    },
+    {
+      "a": 1,
+      "r": 9,
+      "c": 4
+    }
+  ],
+  "refreshErrorMsgList": [],
+  "saveAndRefreshExpressionIdentical": true,
+  "note": "本文件不含 Cookie、Token 或请求头；原日志只有 4 个表单请求，未包含即席查询请求。"
+}
