@@ -29,33 +29,29 @@
   服务：平台
   标签：工单
   优先级：low
+  分支：codex/fix-menu-permission-migration
   菜单项内部的自定义授权按用户 ID、用户组 ID 保存和校验，不按 code。A、B 环境即使用户组编码一样，只要 ID 不同，授权就对不上
   长期修复：导出时附带用户名、用户组编码，导入时解析成 B 的 ID；运行时继续用 ID 鉴权
 
 ## 等待中
-- [ ] 【issue_06706】平台环境变量组件查询时被权限控制
-  服务：平台
-  标签：工单
-  优先级：high
-  问题链接：https://cloud.deepfos.com/element-ux/1-0-0/?elementName=project_defect_form&folderId=DIR0ab175d73e32&path=%5Cissue%5C&task=f92cd8a7-c923-11f1-a2a1-9e9f8f08d350&issues_code=issue_06706&sign=YXBwSWQ9a2d3d2duMDE0JnNwYWNlPWtnd3dnbg%3D%3D
 - [ ] 操作日志增加ip字段
   服务：平台
   标签：优化
   优先级：medium
+  分支：codex/feature-log-job-ip
   需求文档：https://proinnova.yuque.com/ys1krd/deepfos/gq7knxhz4em351ex
-- [ ] porj_*与fix_platform_config合并主分支
+
+## 近期完成
+- [x] porj_*与fix_platform_config合并主分支
   服务：平台
   标签：迭代
   优先级：critical
   截止：2026-10-18
-
-## 近期完成
-- [x] 【京东方】元数据源OpenGauss适配
+- [x] 【issue_06706】平台环境变量组件查询时被权限控制
   服务：平台
-  标签：优化, 工单
-  优先级：medium
-  截止：2026-11-05
-  原因：mysql兼容模式下无法解开4M传输大小限制
+  标签：工单
+  优先级：high
+  问题链接：https://cloud.deepfos.com/element-ux/1-0-0/?elementName=project_defect_form&folderId=DIR0ab175d73e32&path=%5Cissue%5C&task=f92cd8a7-c923-11f1-a2a1-9e9f8f08d350&issues_code=issue_06706&sign=YXBwSWQ9a2d3d2duMDE0JnNwYWNlPWtnd3dnbg%3D%3D
 
 ## 已完成
 - [x] 徐工企业logo上传限制
@@ -120,6 +116,12 @@
   优先级：high
   分支：feature_language_vi_es
   支持越南语、墨西哥西班牙语
+- [x] 【京东方】元数据源OpenGauss适配
+  服务：平台
+  标签：优化, 工单
+  优先级：medium
+  截止：2026-11-05
+  原因：mysql兼容模式下无法解开4M传输大小限制
 - [x] 禁止多端登录
   优先级：high
   截止：2026-08-25
