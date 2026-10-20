@@ -1,0 +1,84 @@
+{
+  "single-NJ160104": [
+    {
+      "cubeName": "Main_Cube",
+      "folderId": "DIR778f45cfcb06",
+      "path": "/Consolidation_App/Consolidation/Main_Model/",
+      "returnOriginalScript": true,
+      "scriptList": [
+        {
+          "script": "period{13}->movement{FAIA01Open02}->year{2025}->scenario{Month}->version{Working}->entity{[BOE].[3210]}->value{EntityCurrency}->account{NJ160104}->d1{None}->d2{None}->d3{None}->d4{None}->d5{None}->d6{None}->audittrail{NoneAdj}->partner{NoPartner}->View{YTD}",
+          "cellList": [
+            "E10"
+          ]
+        }
+      ]
+    }
+  ],
+  "control-NJ160103": [
+    {
+      "cubeName": "Main_Cube",
+      "folderId": "DIR778f45cfcb06",
+      "path": "/Consolidation_App/Consolidation/Main_Model/",
+      "returnOriginalScript": true,
+      "scriptList": [
+        {
+          "script": "period{13}->movement{FAIA01Open02}->year{2025}->scenario{Month}->version{Working}->entity{[BOE].[3210]}->value{EntityCurrency}->account{NJ160103}->d1{None}->d2{None}->d3{None}->d4{None}->d5{None}->d6{None}->audittrail{NoneAdj}->partner{NoPartner}->View{YTD}",
+          "cellList": [
+            "E9"
+          ]
+        }
+      ]
+    }
+  ],
+  "pair-leaves": [
+    {
+      "cubeName": "Main_Cube",
+      "folderId": "DIR778f45cfcb06",
+      "path": "/Consolidation_App/Consolidation/Main_Model/",
+      "returnOriginalScript": true,
+      "scriptList": [
+        {
+          "script": "period{13}->movement{FAIA01Open02}->year{2025}->scenario{Month}->version{Working}->entity{[BOE].[3210]}->value{EntityCurrency}->account{NJ160103}->d1{None}->d2{None}->d3{None}->d4{None}->d5{None}->d6{None}->audittrail{NoneAdj}->partner{NoPartner}->View{YTD}",
+          "cellList": [
+            "E9"
+          ]
+        },
+        {
+          "script": "period{13}->movement{FAIA01Open02}->year{2025}->scenario{Month}->version{Working}->entity{[BOE].[3210]}->value{EntityCurrency}->account{NJ160104}->d1{None}->d2{None}->d3{None}->d4{None}->d5{None}->d6{None}->audittrail{NoneAdj}->partner{NoPartner}->View{YTD}",
+          "cellList": [
+            "E10"
+          ]
+        }
+      ]
+    }
+  ],
+  "parent-and-leaves": [
+    {
+      "cubeName": "Main_Cube",
+      "folderId": "DIR778f45cfcb06",
+      "path": "/Consolidation_App/Consolidation/Main_Model/",
+      "returnOriginalScript": true,
+      "scriptList": [
+        {
+          "script": "period{13}->movement{FAIA01Open02}->year{2025}->scenario{Month}->version{Working}->entity{[BOE].[3210]}->value{EntityCurrency}->account{NJ1601}->d1{None}->d2{None}->d3{None}->d4{None}->d5{None}->d6{None}->audittrail{NoneAdj}->partner{NoPartner}->View{YTD}",
+          "cellList": [
+            "E7"
+          ]
+        },
+        {
+          "script": "period{13}->movement{FAIA01Open02}->year{2025}->scenario{Month}->version{Working}->entity{[BOE].[3210]}->value{EntityCurrency}->account{NJ160103}->d1{None}->d2{None}->d3{None}->d4{None}->d5{None}->d6{None}->audittrail{NoneAdj}->partner{NoPartner}->View{YTD}",
+          "cellList": [
+            "E9"
+          ]
+        },
+        {
+          "script": "period{13}->movement{FAIA01Open02}->year{2025}->scenario{Month}->version{Working}->entity{[BOE].[3210]}->value{EntityCurrency}->account{NJ160104}->d1{None}->d2{None}->d3{None}->d4{None}->d5{None}->d6{None}->audittrail{NoneAdj}->partner{NoPartner}->View{YTD}",
+          "cellList": [
+            "E10"
+          ]
+        }
+      ]
+    }
+  ]
+}

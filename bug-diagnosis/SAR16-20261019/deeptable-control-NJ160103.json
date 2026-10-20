@@ -1,0 +1,45 @@
+{
+  "wbFolderId": "DIR9419caf83fef",
+  "wbName": "SAR16",
+  "sheetBaseplateCellFormulaDTOS": [
+    {
+      "sheetId": "SHTbf64b60379b44535b6ec099ff4580f26",
+      "sheetName": "Sheet1",
+      "baseplateCellFormulaDTOS": [
+        {
+          "r": 8,
+          "c": 4,
+          "de": "period{13}->movement{FAIA01Open02}->year{2025}->scenario{Month}->version{Working}->entity{[BOE].[3210]}->value{EntityCurrency}->account{NJ160103}->d1{None}->d2{None}->d3{None}->d4{None}->d5{None}->d6{None}->audittrail{NoneAdj}->partner{NoPartner}->View{YTD}",
+          "ds": "Main_Cube",
+          "t": 1
+        }
+      ]
+    }
+  ],
+  "dataSourceList": [
+    {
+      "sourceName": "Main_Cube",
+      "elementName": "Main_Cube",
+      "folderId": "DIR778f45cfcb06",
+      "path": "/Consolidation_App/Consolidation/Main_Model/",
+      "serverName": "financial-model-server1-0",
+      "sourceType": "CUB",
+      "sourceAlias": "Main_Cube",
+      "fieldSort": "field10",
+      "errorCode": null,
+      "accountColumn": "account",
+      "accountEle": {
+        "elementName": "Account",
+        "elementType": "DIM",
+        "folderId": "DIRc5b15a7a415a",
+        "path": "\\Consolidation_App\\Common\\Dimension\\",
+        "serverName": "dimension-server1-2"
+      },
+      "accountRelDTOs": null,
+      "notInvalidDataShowType": "DEFAULT",
+      "notInvalidDataCustomInfo": null,
+      "notPermissionDataShowType": "DEFAULT",
+      "notPermissionDataCustomInfo": null
+    }
+  ]
+}
