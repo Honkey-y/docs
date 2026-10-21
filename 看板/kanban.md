@@ -32,6 +32,10 @@
   分支：codex/fix-menu-permission-migration
   菜单项内部的自定义授权按用户 ID、用户组 ID 保存和校验，不按 code。A、B 环境即使用户组编码一样，只要 ID 不同，授权就对不上
   长期修复：导出时附带用户名、用户组编码，导入时解析成 B 的 ID；运行时继续用 ID 鉴权
+- [ ] gateway增加tid
+  服务：平台
+  标签：优化
+  优先级：medium
 
 ## 等待中
 - [ ] 操作日志增加ip字段
