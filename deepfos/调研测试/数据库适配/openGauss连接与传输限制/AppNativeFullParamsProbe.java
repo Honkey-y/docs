@@ -14,7 +14,7 @@ public class AppNativeFullParamsProbe {
  private static final String BASE = "autoReconnect=true&useUnicode=true&allowMultiQueries=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false";
  public static void main(String[] args) throws Exception {
   Properties lab = new Properties();
-  try (var in = Files.newInputStream(Path.of("/Users/yang/Documents/project/docs/opengauss-6.0.3-lab/.env"))) { lab.load(in); }
+  try (var in = Files.newInputStream(Path.of(".env"))) { lab.load(in); }
   for (String options : new String[]{ALL, BASE}) {
    String label = options.equals(ALL) ? "EXACT_CUSTOMER_OPTIONS" : "WITHOUT_8M_MYSQL_OPTIONS";
    String original = "jdbc:mysql://127.0.0.1:13306/cz001?" + options;

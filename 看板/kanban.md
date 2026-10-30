@@ -7,24 +7,9 @@
   标签：优化
   优先级：medium
   截止：2026-12-18
-  Lucene替换es
-- [ ] Jmeter压测Web-调研
-  标签：功能
-  优先级：low
-  首版核心功能要实现各个报告的自动化产出
-- [ ] license认证增加人数控制
-  服务：平台
-  标签：迭代
-  优先级：high
-  截止：2026-11-06
-
-## 进行中
-- [ ] 电子表格属性与币种公式
-  服务：电子表格
-  标签：功能
-  优先级：high
-  截止：2026-10-30
-  需求文档：https://proinnova.yuque.com/ys1krd/ah9dqq/et4df44r0oru7n2l
+  方案一：Lucene替换es
+  方案二：冷热分表存储，日志查询形式更改
+  方案三：按年分表，op环境一般日志均不多
 - [ ] 菜单不同环境导出导入后内部权限失效
   服务：平台
   标签：工单
@@ -32,30 +17,70 @@
   分支：codex/fix-menu-permission-migration
   菜单项内部的自定义授权按用户 ID、用户组 ID 保存和校验，不按 code。A、B 环境即使用户组编码一样，只要 ID 不同，授权就对不上
   长期修复：导出时附带用户名、用户组编码，导入时解析成 B 的 ID；运行时继续用 ID 鉴权
-- [ ] gateway增加tid
+- [ ] 作业日志增加权限校验
   服务：平台
+  标签：功能, 迭代
+  优先级：medium
+  截止：2026-11-06
+  需求文档：https://proinnova.yuque.com/ys1krd/deepfos/qcoihdnb1z4n3r4g
+- [ ] deep-planning暴露缓存key-value
+  服务：电子表格
+  标签：优化
+  优先级：low
+  主要作用于压测，由电子表格为入口，看走的所有链路的缓存开关是否打开
+
+## 进行中
+- [ ] 电子表格支持全部下载中心导出
+  服务：电子表格
   标签：优化
   优先级：medium
+- [ ] 平台新增企业审查日志角色
+  服务：平台
+  标签：迭代, 功能
+  优先级：medium
+  截止：2026-11-02
+  需求文档：https://proinnova.yuque.com/ys1krd/deepfos/iledk2hr3zlw0p4i
+- [ ] 蚂蚁压测覆盖率95%攻坚
+  服务：平台
+  优先级：high
+  截止：2026-11-13
+- [ ] Jmeter压测Web
+  标签：功能
+  优先级：low
+  首版核心功能要实现各个报告的自动化产出
 
 ## 等待中
-- [ ] 操作日志增加ip字段
+- [ ] 电子表格属性与币种公式
+  服务：电子表格
+  标签：功能
+  优先级：high
+  截止：2026-10-30
+  需求文档：https://proinnova.yuque.com/ys1krd/ah9dqq/et4df44r0oru7n2l
+- [ ] license认证增加人数控制
+  服务：平台
+  标签：迭代
+  优先级：high
+  截止：2026-11-06
+  分支：codex/license-user-count
+  需求文档：https://proinnova.yuque.com/ys1krd/deepfos/bldqus9e6z409zeo
+- [ ] 电子表格按钮默认更改
+  服务：电子表格
+  标签：优化
+  优先级：low
+  截止：2026-11-02
+  刷新当前/刷新全部/重置 按钮默认隐藏
+
+## 近期完成
+- [x] 操作日志增加ip字段
   服务：平台
   标签：优化
   优先级：medium
   分支：codex/feature-log-job-ip
   需求文档：https://proinnova.yuque.com/ys1krd/deepfos/gq7knxhz4em351ex
-
-## 近期完成
-- [x] porj_*与fix_platform_config合并主分支
+- [x] gateway增加tid
   服务：平台
-  标签：迭代
-  优先级：critical
-  截止：2026-10-18
-- [x] 【issue_06706】平台环境变量组件查询时被权限控制
-  服务：平台
-  标签：工单
-  优先级：high
-  问题链接：https://cloud.deepfos.com/element-ux/1-0-0/?elementName=project_defect_form&folderId=DIR0ab175d73e32&path=%5Cissue%5C&task=f92cd8a7-c923-11f1-a2a1-9e9f8f08d350&issues_code=issue_06706&sign=YXBwSWQ9a2d3d2duMDE0JnNwYWNlPWtnd3dnbg%3D%3D
+  标签：优化
+  优先级：medium
 
 ## 已完成
 - [x] 徐工企业logo上传限制
@@ -148,6 +173,11 @@
   2、日志应该有跟随底部选项，默认勾选
   3、错误提示要更友好一点，现在不友好
   4、现在一刷新页面客户配置要5s才能出来，优化下，一定要快
+- [x] porj_*与fix_platform_config合并主分支
+  服务：平台
+  标签：迭代
+  优先级：critical
+  截止：2026-10-18
 - [x] 平台交接
   优先级：high
   截止：2026-09-03
@@ -159,3 +189,8 @@
   优先级：high
   1、并行打包
   2、密钥与saas版密钥同步识别（是否可实现，密钥应该存在saas打包机中）
+- [x] 【issue_06706】平台环境变量组件查询时被权限控制
+  服务：平台
+  标签：工单
+  优先级：high
+  问题链接：https://cloud.deepfos.com/element-ux/1-0-0/?elementName=project_defect_form&folderId=DIR0ab175d73e32&path=%5Cissue%5C&task=f92cd8a7-c923-11f1-a2a1-9e9f8f08d350&issues_code=issue_06706&sign=YXBwSWQ9a2d3d2duMDE0JnNwYWNlPWtnd3dnbg%3D%3D
