@@ -2,7 +2,7 @@
 服务库：平台, 电子表格
 
 ## 待办
-- [ ] 替换es中间件-调研
+- [ ] 替换es中间件
   服务：平台
   标签：优化
   优先级：medium
@@ -17,37 +17,28 @@
   分支：codex/fix-menu-permission-migration
   菜单项内部的自定义授权按用户 ID、用户组 ID 保存和校验，不按 code。A、B 环境即使用户组编码一样，只要 ID 不同，授权就对不上
   长期修复：导出时附带用户名、用户组编码，导入时解析成 B 的 ID；运行时继续用 ID 鉴权
-- [ ] 作业日志增加权限校验
-  服务：平台
-  标签：功能, 迭代
-  优先级：medium
-  截止：2026-11-06
-  需求文档：https://proinnova.yuque.com/ys1krd/deepfos/qcoihdnb1z4n3r4g
 - [ ] deep-planning暴露缓存key-value
   服务：电子表格
   标签：优化
   优先级：low
   主要作用于压测，由电子表格为入口，看走的所有链路的缓存开关是否打开
-
-## 进行中
-- [ ] 电子表格支持全部下载中心导出
-  服务：电子表格
-  标签：优化
-  优先级：medium
-- [ ] 平台新增企业审查日志角色
-  服务：平台
-  标签：迭代, 功能
-  优先级：medium
-  截止：2026-11-02
-  需求文档：https://proinnova.yuque.com/ys1krd/deepfos/iledk2hr3zlw0p4i
-- [ ] 蚂蚁压测覆盖率95%攻坚
-  服务：平台
-  优先级：high
-  截止：2026-11-13
 - [ ] Jmeter压测Web
   标签：功能
   优先级：low
   首版核心功能要实现各个报告的自动化产出
+
+## 进行中
+- [ ] 蚂蚁压测覆盖率95%攻坚
+  服务：平台
+  优先级：high
+  截止：2026-11-13
+- [ ] 作业日志增加权限校验
+  服务：平台
+  标签：功能, 迭代
+  优先级：medium
+  截止：2026-11-06
+  分支：codex/job-batch-remove-permission
+  需求文档：https://proinnova.yuque.com/ys1krd/deepfos/qcoihdnb1z4n3r4g
 
 ## 等待中
 - [ ] 电子表格属性与币种公式
@@ -55,6 +46,7 @@
   标签：功能
   优先级：high
   截止：2026-10-30
+  分支：feat/filter-ud-currency
   需求文档：https://proinnova.yuque.com/ys1krd/ah9dqq/et4df44r0oru7n2l
 - [ ] license认证增加人数控制
   服务：平台
@@ -63,24 +55,43 @@
   截止：2026-11-06
   分支：codex/license-user-count
   需求文档：https://proinnova.yuque.com/ys1krd/deepfos/bldqus9e6z409zeo
-- [ ] 电子表格按钮默认更改
-  服务：电子表格
-  标签：优化
-  优先级：low
+- [ ] 平台新增企业审查日志角色
+  服务：平台
+  标签：迭代, 功能
+  优先级：medium
   截止：2026-11-02
-  刷新当前/刷新全部/重置 按钮默认隐藏
-
-## 近期完成
-- [x] 操作日志增加ip字段
+  分支：codex/enterprise-log-auditor
+  需求文档：https://proinnova.yuque.com/ys1krd/deepfos/iledk2hr3zlw0p4i
+- [ ] 【三一】网关http客户端优化
   服务：平台
   标签：优化
+  优先级：low
+  分支：jdk21
+  考虑合并
+- [ ] 电子表格支持全部下载中心导出
+  服务：电子表格
+  标签：优化
   优先级：medium
-  分支：codex/feature-log-job-ip
-  需求文档：https://proinnova.yuque.com/ys1krd/deepfos/gq7knxhz4em351ex
+  分支：codex/download-center-enable
+
+## 近期完成
 - [x] gateway增加tid
   服务：平台
   标签：优化
   优先级：medium
+- [x] 电子表格按钮默认更改
+  服务：电子表格
+  标签：优化
+  优先级：low
+  截止：2026-11-02
+  分支：codex/hide-new-workbook-refresh-buttons
+  刷新当前/刷新全部/重置 按钮默认隐藏
+- [x] 【华润医商】压测优化
+  服务：平台
+  标签：优化
+  优先级：low
+  Account分支：perf_hy_1102
+  考虑合并
 
 ## 已完成
 - [x] 徐工企业logo上传限制
@@ -178,6 +189,12 @@
   标签：迭代
   优先级：critical
   截止：2026-10-18
+- [x] 操作日志增加ip字段
+  服务：平台
+  标签：优化
+  优先级：medium
+  分支：codex/feature-log-job-ip
+  需求文档：https://proinnova.yuque.com/ys1krd/deepfos/gq7knxhz4em351ex
 - [x] 平台交接
   优先级：high
   截止：2026-09-03
