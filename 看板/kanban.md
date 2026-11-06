@@ -18,16 +18,6 @@
   标签：功能
   优先级：low
   首版核心功能要实现各个报告的自动化产出
-- [ ] 电子表格对齐方式
-  服务：电子表格
-  标签：功能
-  优先级：medium
-  需求：https://proinnova.yuque.com/ys1krd/ah9dqq/qxg7bwt20e9mf45f
-- [ ] 浮动行表头支持自动换行
-  服务：电子表格
-  标签：功能
-  优先级：medium
-  需求：https://proinnova.yuque.com/ys1krd/ah9dqq/nrs91ppsaiq1ze67
 - [ ] 浮动行表列字段全量筛选
   服务：电子表格
   标签：功能
@@ -35,13 +25,6 @@
   需求：https://proinnova.yuque.com/ys1krd/ah9dqq/ggsiyovvbtit4i13
 
 ## 进行中
-- [ ] 作业日志增加权限校验
-  服务：平台
-  标签：功能, 迭代
-  优先级：medium
-  截止：2026-11-06
-  分支：codex/job-batch-remove-permission
-  需求文档：https://proinnova.yuque.com/ys1krd/deepfos/qcoihdnb1z4n3r4g
 - [ ] 替换es中间件
   服务：平台
   标签：优化
@@ -54,6 +37,12 @@
   优先级：high
   分支：codex/sheet-multilingual
   需求：https://proinnova.yuque.com/ys1krd/ah9dqq/kvcc4ecepsxi7of0#mxXAG
+- [ ] 电子表格对齐方式+表头自动换行
+  服务：电子表格
+  标签：功能
+  优先级：medium
+  分支：codex/table-display-settings
+  需求：https://proinnova.yuque.com/ys1krd/ah9dqq/qxg7bwt20e9mf45f
 
 ## 等待中
 - [ ] 电子表格属性与币种公式
@@ -75,6 +64,18 @@
   标签：优化
   优先级：medium
   分支：codex/download-center-enable
+- [ ] 作业日志增加权限校验
+  服务：平台
+  标签：功能, 迭代
+  优先级：medium
+  截止：2026-11-06
+  分支：codex/job-batch-remove-permission
+  需求文档：https://proinnova.yuque.com/ys1krd/deepfos/qcoihdnb1z4n3r4g
+- [ ] 蚂蚁用户user_id更换规则
+  服务：平台
+  标签：优化
+  优先级：medium
+  截止：2026-11-10
 
 ## 近期完成
 - [x] 电子表格按钮默认更改
@@ -93,7 +94,6 @@
   标签：优化
   优先级：low
   分支：jdk21
-  考虑合并
 - [x] 平台新增企业审查日志角色
   服务：平台
   标签：迭代, 功能
